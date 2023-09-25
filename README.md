@@ -5,7 +5,7 @@
 ![](/app-animation.gif)
 
 
-<a href=/assigner2.2-beta.exe> <img src="https://img.shields.io/badge/Click here-to download-green"></a>
+<a href=/assigner2.2-beta.exe> <img src="https://img.shields.io/badge/Download-here-green"></a>
 
 ## Visitor Count
 ![](https://profile-counter.glitch.me/comr8/count.svg)
