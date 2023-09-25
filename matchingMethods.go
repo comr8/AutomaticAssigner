@@ -47,6 +47,33 @@ func detectTrueFalseString(arg string) bool {
 	}
 }
 
+func matchTaskNameToWorkerName(countWorkets int, names, tasksNames []string, lang string) {
+	tasksWithWorkers := make(map[string]string)
+	var decision string
+	switch lang {
+	default:
+		fmt.Println(TaskWorkerTableRus)
+		for i := 0; i < len(tasksNames)-1; i++ {
+			//fmt.Printf("len(tasksNames) = %v\n", len(tasksNames))
+			tasksWithWorkers[tasksNames[i]] = names[rand.Intn(countWorkets)]
+			time.Sleep(500 * time.Millisecond)
+			fmt.Printf("|  %v   |  %v\n", tasksNames[i], tasksWithWorkers[tasksNames[i]])
+		}
+		fmt.Print(AgreeOfDistributionRus)
+		fmt.Scan(&decision)
+		switch {
+		case detectTrueFalseString(decision):
+			fmt.Println(AppEndingRus)
+			time.Sleep(2 * time.Second)
+			os.Exit(0)
+		case !detectTrueFalseString(decision):
+			fmt.Println(RepeatingAppRus)
+			time.Sleep(1 * time.Second)
+			matchTaskNameToWorkerName(countWorkets, names, tasksNames, lang)
+		}
+	}
+}
+
 // Recursionly matching task ids with workers names
 func matchTaskIdToWorkerName(countWorkets int, tasks []int, names []string, lang string) {
 	tasksWithWorkers := make(map[int]string)
